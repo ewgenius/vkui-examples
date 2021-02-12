@@ -13,6 +13,7 @@ import {
   CellButton,
   Cell,
   Div,
+  ScreenSpinner,
 } from "@vkontakte/vkui";
 import { SandboxEmbed } from "@codesandbox/react-embed";
 import "@vkontakte/vkui/dist/vkui.css";
@@ -24,23 +25,23 @@ interface Example {
 
 const examples: Example[] = [
   {
-    name: "Basic Example",
+    name: "Default Example",
     path: "src/examples/default-example.tsx",
   },
   {
-    name: "Panels Example",
+    name: "Epic/Tabbar Example",
     path: "src/examples/epic-tabbar-example.tsx",
   },
   {
-    name: "Epic/Tabbar Example",
+    name: "Modals Example",
     path: "src/examples/modals-example.tsx",
   },
   {
-    name: "Split Layout Example",
+    name: "Panels Example (not finished)",
     path: "src/examples/panels-example.tsx",
   },
   {
-    name: "Modals Example",
+    name: "SplitLayout Example (not finished)",
     path: "src/examples/splitlayout-example.tsx",
   },
 ];
@@ -102,7 +103,9 @@ export function Preview() {
                 fontsize: 14,
               }}
               height="calc(100vh - 80px)"
-            ></SandboxEmbed>
+            >
+              <ScreenSpinner />
+            </SandboxEmbed>
           </Panel>
         </View>
       </SplitCol>
