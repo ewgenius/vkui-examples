@@ -47,7 +47,7 @@ const examples: Example[] = [
 ];
 
 export function Preview() {
-  const [example, selectExample] = useState<Example>(examples[1]);
+  const [example, selectExample] = useState<Example>(examples[0]);
 
   return (
     <SplitLayout
