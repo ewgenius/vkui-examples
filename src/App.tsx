@@ -101,6 +101,7 @@ export function Preview() {
               embedOptions={{
                 codemirror: true,
                 fontsize: 14,
+                module: "example.tsx",
               }}
               height="calc(100vh - 80px)"
             >
