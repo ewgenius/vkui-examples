@@ -12,31 +12,23 @@ import {
 } from "@vkontakte/vkui";
 import "@vkontakte/vkui/dist/vkui.css";
 
-export function Example() {
+export default function App() {
   return (
-    <SplitLayout>
-      <SplitCol>
-        <View activePanel="panel1">
-          <Panel id="panel1">
-            <PanelHeader>Panel</PanelHeader>
-            <Group></Group>
-          </Panel>
-        </View>
-      </SplitCol>
-    </SplitLayout>
-  );
-}
-
-const App = () => (
-  <React.StrictMode>
     <ConfigProvider>
       <AdaptivityProvider>
         <AppRoot>
-          <Example />
+          <SplitLayout>
+            <SplitCol>
+              <View activePanel="panel1">
+                <Panel id="panel1">
+                  <PanelHeader>Panel</PanelHeader>
+                  <Group></Group>
+                </Panel>
+              </View>
+            </SplitCol>
+          </SplitLayout>
         </AppRoot>
       </AdaptivityProvider>
     </ConfigProvider>
-  </React.StrictMode>
-);
-
-export default App;
+  );
+}

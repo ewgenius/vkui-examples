@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ConfigProvider,
   AdaptivityProvider,
@@ -8,36 +8,101 @@ import {
   View,
   Panel,
   PanelHeader,
-  Group,
+  WebviewType,
+  ANDROID,
+  CellButton,
+  Cell,
+  Div,
 } from "@vkontakte/vkui";
 import { SandboxEmbed } from "@codesandbox/react-embed";
 import "@vkontakte/vkui/dist/vkui.css";
 
-export function Example() {
+interface Example {
+  path: string;
+  name: string;
+}
+
+const examples: Example[] = [
+  {
+    name: "Basic Example",
+    path: "src/examples/default-example.tsx",
+  },
+  {
+    name: "Panels Example",
+    path: "src/examples/panels-example.tsx",
+  },
+  {
+    name: "Epic/Tabbar Example",
+    path: "src/examples/epic-tabbar-example.tsx",
+  },
+  {
+    name: "Split Layout Example",
+    path: "src/examples/split-layout-example.tsx",
+  },
+  {
+    name: "Modals Example",
+    path: "src/examples/modals-example.tsx",
+  },
+];
+
+export function Preview() {
+  const [example, selectExample] = useState<Example>(examples[0]);
+
   return (
-    <SplitLayout>
-      <SplitCol>
-        <View activePanel="panel1">
-          <Panel id="panel1">
-            <PanelHeader>Panel</PanelHeader>
-            <Group>
-              <SandboxEmbed
-                sandboxOptions={{
-                  name: "VKUI - Basic Example",
-                  examplePath: "src/examples/default-example.tsx",
-                  gitInfo: {
-                    account: "ewgenius",
-                    repository: "vkui-examples",
-                    host: "github",
-                  },
-                }}
-                embedOptions={{
-                  codemirror: true,
-                  fontsize: 14,
-                }}
-                height="100vh"
-              ></SandboxEmbed>
-            </Group>
+    <SplitLayout
+      style={{ justifyContent: "center" }}
+      header={<PanelHeader separator={false} />}
+    >
+      <SplitCol fixed width="280px" maxWidth="280px">
+        <Panel>
+          <PanelHeader />
+          <Div>
+            {examples.map((e) =>
+              e.path === example.path ? (
+                <Cell>
+                  <span style={{ fontWeight: "bold" }}>{e.name}</span>
+                </Cell>
+              ) : (
+                <CellButton onClick={() => selectExample(e)}>
+                  {e.name}
+                </CellButton>
+              )
+            )}
+          </Div>
+        </Panel>
+      </SplitCol>
+      <SplitCol
+        animate={false}
+        spaced
+        width="calc(100% - 280px)"
+        maxWidth="calc(100% - 280px)"
+      >
+        <View activePanel="preview">
+          <Panel id="preview">
+            <PanelHeader>VKUI Playground</PanelHeader>
+            <SandboxEmbed
+              sandboxOptions={{
+                name: example.name,
+                examplePath: example.path,
+                gitInfo: {
+                  account: "ewgenius",
+                  repository: "vkui-examples",
+                  host: "github",
+                },
+                dependencies: {
+                  "@vkontakte/icons": "^1.75.0",
+                  "@vkontakte/vk-bridge": "^2.4.0",
+                  "@vkontakte/vkjs": "^0.20.0",
+                  "@vkontakte/vkui": "^4.1.0",
+                  "react-scripts": "4.0.2",
+                },
+              }}
+              embedOptions={{
+                codemirror: true,
+                fontsize: 14,
+              }}
+              height="calc(100vh - 80px)"
+            ></SandboxEmbed>
           </Panel>
         </View>
       </SplitCol>
@@ -47,10 +112,10 @@ export function Example() {
 
 const App = () => (
   <React.StrictMode>
-    <ConfigProvider>
+    <ConfigProvider webviewType={WebviewType.INTERNAL} platform={ANDROID}>
       <AdaptivityProvider>
         <AppRoot>
-          <Example />
+          <Preview />
         </AppRoot>
       </AdaptivityProvider>
     </ConfigProvider>
