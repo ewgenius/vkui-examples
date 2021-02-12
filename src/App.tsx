@@ -37,7 +37,7 @@ const examples: Example[] = [
   },
   {
     name: "Split Layout Example",
-    path: "src/examples/split-layout-example.tsx",
+    path: "src/examples/splitlayout-example.tsx",
   },
   {
     name: "Modals Example",
@@ -111,15 +111,13 @@ export function Preview() {
 }
 
 const App = () => (
-  <React.StrictMode>
-    <ConfigProvider webviewType={WebviewType.INTERNAL} platform={ANDROID}>
-      <AdaptivityProvider>
-        <AppRoot>
-          <Preview />
-        </AppRoot>
-      </AdaptivityProvider>
-    </ConfigProvider>
-  </React.StrictMode>
+  <ConfigProvider webviewType={WebviewType.INTERNAL} platform={ANDROID}>
+    <AdaptivityProvider>
+      <AppRoot>
+        <Preview />
+      </AppRoot>
+    </AdaptivityProvider>
+  </ConfigProvider>
 );
 
 export default App;
