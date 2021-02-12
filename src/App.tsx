@@ -29,24 +29,24 @@ const examples: Example[] = [
   },
   {
     name: "Panels Example",
-    path: "src/examples/panels-example.tsx",
-  },
-  {
-    name: "Epic/Tabbar Example",
     path: "src/examples/epic-tabbar-example.tsx",
   },
   {
+    name: "Epic/Tabbar Example",
+    path: "src/examples/modals-example.tsx",
+  },
+  {
     name: "Split Layout Example",
-    path: "src/examples/splitlayout-example.tsx",
+    path: "src/examples/panels-example.tsx",
   },
   {
     name: "Modals Example",
-    path: "src/examples/modals-example.tsx",
+    path: "src/examples/splitlayout-example.tsx",
   },
 ];
 
 export function Preview() {
-  const [example, selectExample] = useState<Example>(examples[0]);
+  const [example, selectExample] = useState<Example>(examples[1]);
 
   return (
     <SplitLayout
