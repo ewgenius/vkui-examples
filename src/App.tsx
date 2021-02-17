@@ -37,6 +37,10 @@ const examples: Example[] = [
     path: "src/examples/modals-example.tsx",
   },
   {
+    name: "ActionSheet Example",
+    path: "src/examples/actionsheet-example.tsx",
+  },
+  {
     name: "Panels Example (not finished)",
     path: "src/examples/panels-example.tsx",
   },
