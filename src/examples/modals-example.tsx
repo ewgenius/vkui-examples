@@ -24,6 +24,7 @@ export default function App() {
       <AdaptivityProvider>
         <AppRoot>
           <SplitLayout
+            header={<PanelHeader shadow separator={false} />}
             modal={
               <ModalRoot activeModal={modal} onClose={() => setModal(null)}>
                 <ModalPage

@@ -17,7 +17,7 @@ export default function App() {
     <ConfigProvider>
       <AdaptivityProvider>
         <AppRoot>
-          <SplitLayout>
+          <SplitLayout header={<PanelHeader shadow separator={false} />}>
             <SplitCol>
               <View activePanel="panel1">
                 <Panel id="panel1">
