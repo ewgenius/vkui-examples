@@ -98,7 +98,7 @@ export function Preview() {
                   "@vkontakte/icons": "^1.75.0",
                   "@vkontakte/vk-bridge": "^2.4.0",
                   "@vkontakte/vkjs": "^0.20.0",
-                  "@vkontakte/vkui": "^4.1.0",
+                  "@vkontakte/vkui": "^4.2.0",
                   "react-scripts": "4.0.2",
                 },
               }}
