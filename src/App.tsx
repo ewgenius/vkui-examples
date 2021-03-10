@@ -18,6 +18,13 @@ import {
 import { SandboxEmbed } from "@codesandbox/react-embed";
 import "@vkontakte/vkui/dist/vkui.css";
 
+const dependencies = require("../package.json").dependencies;
+const vkuiVersion = dependencies["@vkontakte/vkui"];
+const vkIconsVersion = dependencies["@vkontakte/icons"];
+const vkjsVersion = dependencies["@vkontakte/vkjs"];
+const vkBridgeVersion = dependencies["@vkontakte/vk-bridge"];
+console.log(vkuiVersion);
+
 interface Example {
   path: string;
   name: string;
@@ -95,10 +102,10 @@ export function Preview() {
                   host: "github",
                 },
                 dependencies: {
-                  "@vkontakte/icons": "^1.75.0",
-                  "@vkontakte/vk-bridge": "^2.4.0",
-                  "@vkontakte/vkjs": "^0.20.0",
-                  "@vkontakte/vkui": "^4.2.0",
+                  "@vkontakte/icons": vkIconsVersion,
+                  "@vkontakte/vk-bridge": vkBridgeVersion,
+                  "@vkontakte/vkjs": vkjsVersion,
+                  "@vkontakte/vkui": vkuiVersion,
                   "react-scripts": "4.0.2",
                 },
               }}
